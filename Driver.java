@@ -33,14 +33,9 @@ public class Driver {
 					brdr = new Border(bBrdr,"000000000000");
 					ImageDN in = new ImageDN(bIn);
 					if ((brdr.getMaxX() != in.getMaxX()) || (brdr.getMaxY() != in.getMaxY())) {
-						try {
-							ImageDN inBrdr2 = brdr.scale1(in.getMaxX(),in.getMaxY());
-						}
-						catch (Exception e) {
-							e.printStackTrace();
-						}
-						//Border brdr2 = new Border(inBrdr2.getImage(),"000000000000");
-						//in.applyBorder(brdr2);
+						ImageDN inBrdr2 = brdr.scale1(in.getMaxX(),in.getMaxY());
+						Border brdr2 = new Border(inBrdr2.getImage(),"000000000000");
+						in.applyBorder(brdr2);
 					}
 					else {
 						in.applyBorder(brdr);

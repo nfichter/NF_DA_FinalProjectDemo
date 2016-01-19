@@ -161,7 +161,9 @@ public class ImageDN {
 		double scaleY = (double)newHeight/currentHeight;
 		AffineTransform scale = AffineTransform.getScaleInstance(scaleX,scaleY);
 		AffineTransformOp scaleOp = new AffineTransformOp(scale,AffineTransformOp.TYPE_BILINEAR);
-		
+		if (input.getType() == 0) {
+			return scaleOp.filter(input, new BufferedImage(newWidth,newHeight,5));
+		}
 		return scaleOp.filter(input, new BufferedImage(newWidth,newHeight,input.getType()));
 	}
 	
